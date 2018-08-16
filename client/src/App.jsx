@@ -71,7 +71,8 @@ class App extends Component {
 
     switch (currentView) {
       case 'Author Index':
-        return <AuthorIndex />;
+        return <AuthorIndex 
+          authors={authors}/>;
         break;
       case 'Create Author':
         return <CreateAuthor />;

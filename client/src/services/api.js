@@ -16,6 +16,10 @@ export function fetchBooks() {
     })
 }
 
+export function saveAuthor(author) {
+  return 'thing';
+}
+
 export function saveBook(book) {
   const opts = {
     method: 'POST',

@@ -43,6 +43,7 @@ class CreateBook extends Component {
           <input
             type="text" 
             name="title"
+            value={this.state.title}
             onChange={this.handleChange} />
 
           <select
@@ -50,11 +51,11 @@ class CreateBook extends Component {
             onChange={this.handleChange}
             name="author_id"
           >
-            {options.map(author => (
+            {options.map(option => (
               <option 
-                key={author.value}
-                value={author.value}>
-                {author.display}
+                key={option.value}
+                value={option.value}>
+                {option.display}
               </option>
             ))}
           </select>
