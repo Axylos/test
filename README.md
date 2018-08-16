@@ -307,6 +307,8 @@ That was a handful.  In summary we need to build:
 
 And that's just the client side of the problem.  Try to write out this much code, and use the `Network` tab in the DevTools to verify that the correct data is being sent to the server.  Since there is currently no route for creating an author this api call will return a `404`.  Don't fret, we'll get to that next.
 
+Here's a [link](https://git.generalassemb.ly/wdi-nyc-lambda/react-filter/blob/solution/src/FilterableList.jsx) to the `FilterableList` component we saw this morning to remind you how controlled components work. 
+
 ## Step 2.5 The Post Author Route
 
 Assuming you can successfully `POST` from the CreateAuthor form with a `first_name` and `last_name` field, it's time to build out the route on the server.
