@@ -18,6 +18,7 @@ class App extends Component {
 
     this.state = {
       currentView: 'Author Index',
+      selectedBook: '',
       authors: [],
       books: []
     }
@@ -114,7 +115,7 @@ class App extends Component {
         <Header 
           onClick={this.handleLinkClick.bind(this)}
           links={links} />
-        <h2>hey there</h2>
+        <h1>Publisher App</h1>
         {this.showView()}
       </div>
     );
