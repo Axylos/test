@@ -242,6 +242,8 @@ The next few functions have quite a bit going on.
 
 `createBook` and `updateBook` simply pass data to methods from the api service and then re-fetch all books before setting state to the updated list of books.  This is definitely something of an anti-pattern that you wouldn't use in real life.  Safely updating collections in React has some interesting challenges, so for now we are going to just re-fetch the data from the server.  We'll go over immutable updates soon though!
 
+Also, notice how `createBook` and `updateBook` set the `currentView` to the index.  This allows us to simulate a "redirect" after saving to the db.
+
 the `showView` method abstracts out the conditional rendering for the main view component based on the `currentView` state variable.  It gets the `currentView` out of state and then using a `switch` statement renders one and only one main component, making sure to pass any necessary props down to each component as needed.
 
 #### render()
@@ -277,4 +279,38 @@ You should be able to open up the app in the browser by hitting `http://localhos
 YAY
 
 ## Step 1 Let's Start Hacking!
+
+
+## Step 2 The Create Author Component
+
+Now that we've (hopefully) got AuthorIndex rendering a list of authors, let's add a form for creating new authors.
+
+Take a moment to look at the code on both the browser and the client for creating a new Book. `<breathe>`
+
+Now let's start building out the form in React for creating an Author.  The `CreateAuthor` component has already been started, you just need to pass it the props it needs and then implement the component.
+
+### Desiging our component
+What props should we pass?  Notice how `CreateBook` takes two props, viz., `onSubmit` and `authors`.  The `onSubmit` prop is called when the form is getting submitted, and `authors` was needed in order to associate a book with an author.  Since a new Author can stand alone and doesn't need to know anything about `books`, the `CreateAuthor` component only needs a single prop, i.e., `onSubmit`.  The value of `onSubmit` should be a `createAuthor` method.
+
+Analogously to the `createBook` method, `createAuthor` should call a function from the api service to create the new author.  Therefore, the api service needs a `saveAuthor` method just like `saveBook`, and this method should be imported into `App.jsx`.
+
+
+### Time to Write some Code
+That was a handful.  In summary we need to build:
+
+
+- An api service method, `saveAuthor`
+- Export the method from `api.js` and import it in `App.jsx`
+- A `createAuthor` method that calls `saveAuthor` and that also sets state appropriately
+- A form inside `CreateAuthor` in which a user can enter an Author's `first_name` and `last_name`
+
+And that's just the client side of the problem.  Try to write out this much code, and use the `Network` tab in the DevTools to verify that the correct data is being sent to the server.  Since there is currently no route for creating an author this api call will return a `404`.  Don't fret, we'll get to that next.
+
+## Step 2.5 The Post Author Route
+
+Assuming you can successfully `POST` from the CreateAuthor form with a `first_name` and `last_name` field, it's time to build out the route on the server.
+
+You will need to write the necessary code in the Author router and Authors controller to properly handle the `POST` request to `/authors`.  The model method for `create` has already been written, so one less thing there.
+
+This should be familiar by now.  You got this!
 
