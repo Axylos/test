@@ -280,7 +280,7 @@ YAY
 
 ## Step 1 Let's Start Hacking!
 
-You're going to render a list of authors in the `AuthorIndex` component. Render `AuthorIndex` in the render function of `App.jsx` and pass `authors` that are currently in state in `App.jsx` down as a prop to `AuthorIndex`. The `AuthorIndex` component can now access the array of authors through this prop. Now switch over to `AuthorIndex.jsx`. Map through `props.authors` (or whatever equally semantic name you gave your prop), returning an array of author names. Render the `first_name` and `last_name` of each author. _Don't forget to add a key!_ You can use the `author_id` as your key. You can follow the pattern in the [Star Wars solution](https://git.generalassemb.ly/wdi-nyc-lambda/react-star-wars-homework/blob/solution/star-wars-homework/src/FilmList.jsx) if you get stuck. 
+You're going to render a list of authors in the `AuthorIndex` component. Render `AuthorIndex` in the render function of `App.jsx` and pass `authors` that are currently in state in `App.jsx` down as a prop to `AuthorIndex`. The `AuthorIndex` component can now access the array of authors through this prop. Now switch over to `AuthorIndex.jsx`. Map through `props.authors` (or whatever equally semantic name you gave your prop), returning an array of author names. Render the `first_name` and `last_name` of each author. _Don't forget to add a key!_ React requires using something that will _always be unique to this specific element_ to use as a key so that when the DOM is updated it has a way of keeping track of elements. The key is always added to the _most parent_ JSX element returned by the map function. You can use the `author_id` as your key. You can follow the pattern in the [Star Wars solution](https://git.generalassemb.ly/wdi-nyc-lambda/react-star-wars-homework/blob/solution/star-wars-homework/src/FilmList.jsx) if you get stuck. 
 
 ## Step 2 The Create Author Component
 
@@ -306,6 +306,8 @@ That was a handful.  In summary we need to build:
 - A form inside `CreateAuthor` in which a user can enter an Author's `first_name` and `last_name`
 
 And that's just the client side of the problem.  Try to write out this much code, and use the `Network` tab in the DevTools to verify that the correct data is being sent to the server.  Since there is currently no route for creating an author this api call will return a `404`.  Don't fret, we'll get to that next.
+
+Here's a [link](https://git.generalassemb.ly/wdi-nyc-lambda/react-filter/blob/solution/src/FilterableList.jsx) to the `FilterableList` component we saw this morning to remind you how controlled components work. 
 
 ## Step 2.5 The Post Author Route
 
