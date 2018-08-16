@@ -4,6 +4,8 @@ _Introduction_
 
 Today we'll be taking a deep dive into full-stack _crud_ with Express and React with a focus on Create and Edit.  This is a tall order in one day, but it'll be well worth it at the end.  This lesson comes pre-packaged with an existing app that can be used as a reference as well as providing a basis to hack on additional features.
 
+You will be browsing and adding to a non-trivial codebase.  When making changes, try to verify as quickly as possible that your code is error free and does not have any invalid syntax.  After ensuring that things are working consider committing your code.  If you break something, and just need an escape hatch you can reset to the last commit or in extreme cases just re-clone down the repo and start from scratch.  Things should be modular enough that you won't lose too much critical work.
+
 As a rough guide, the `Book` resource has been more or less built out but the `Author` resource has not (since the latter is a bit simpler).  We'll be glancing at `Book` as a rough guide for how to build out the rest of `Author`.
 
 ## Step 0 The Code
@@ -256,7 +258,7 @@ If you haven't already `fork` and `clone` this repo.
 - `cd` into the repo
 - `cd` into `app`
 - run `npm install`
-- Look at the `config/conn.js` file to see what database name the app is expecting (it's `publisher_db`)
+- Look at the `config/conn.js` file to see what database name the app is expecting
 - run `createdb publisher_db`
 - next, look at `package.json`, especially the `db:create` script
 - run `npm run db:create`
@@ -267,9 +269,12 @@ The server is running on port 3001.  So if we run `curl localhost:3001/books` we
 Now, _open a new terminal window_
 
 - `cd` into the `client` directory
-- run `npm install`
-- run `npm start`
+- run `yarn install`
+- run `yarn start`
 
 You should be able to open up the app in the browser by hitting `http://localhost:3000`
 
 YAY
+
+## Step 1 Let's Start Hacking!
+

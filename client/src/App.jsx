@@ -65,7 +65,7 @@ class App extends Component {
       })
   }
 
-  showView() {
+  determineWhichToRender() {
     const { currentView } = this.state;
     const { authors, books, selectedBook } = this.state;
 
@@ -116,7 +116,7 @@ class App extends Component {
           onClick={this.handleLinkClick.bind(this)}
           links={links} />
         <h1>Publisher App</h1>
-        {this.showView()}
+        {this.determineWhichToRender()}
       </div>
     );
   }
