@@ -246,3 +246,30 @@ the `showView` method abstracts out the conditional rendering for the main view 
 Finally, the `render` method renders a header with a `handleLinkClick` prop so the `currentView` can be changed as well as the rendered view from `showView()`.
 
 Notice how we can write helper methods that return bits of jsx or components.  It's as if functional components can be build on the fly from within stateful components.
+
+## Step 0.1 Up and Running
+
+Now it's time to set the app up. 
+
+If you haven't already `fork` and `clone` this repo.
+
+- `cd` into the repo
+- `cd` into `app`
+- run `npm install`
+- Look at the `config/conn.js` file to see what database name the app is expecting (it's `publisher_db`)
+- run `createdb publisher_db`
+- next, look at `package.json`, especially the `db:create` script
+- run `npm run db:create`
+- now run `npm run dev` (If all goes well you should get a running Express server)
+
+The server is running on port 3001.  So if we run `curl localhost:3001/books` we should see a list of books in the terminal.
+
+Now, _open a new terminal window_
+
+- `cd` into the `client` directory
+- run `npm install`
+- run `npm start`
+
+You should be able to open up the app in the browser by hitting `http://localhost:3000`
+
+YAY
