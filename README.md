@@ -280,7 +280,7 @@ YAY
 
 ## Step 1 Let's Start Hacking!
 
-You're going to render a list of authors in the `AuthorIndex` component. Render `AuthorIndex` in the render function of `App.jsx` and pass `authors` that are currently in state in `App.jsx` down as a prop to `AuthorIndex`. The `AuthorIndex` component can now access the array of authors through this prop. Now switch over to `AuthorIndex.jsx`. Map through `props.authors` (or whatever equally semantic name you gave your prop), returning an array of author names. Render the first and last name of each author. _Don't forget to add a key!_ You can use the `author_id` as your key. You can follow the pattern in the [Star Wars solution](https://git.generalassemb.ly/wdi-nyc-lambda/react-star-wars-homework/blob/solution/star-wars-homework/src/FilmList.jsx) if you get stuck. 
+You're going to render a list of authors in the `AuthorIndex` component. Render `AuthorIndex` in the render function of `App.jsx` and pass `authors` that are currently in state in `App.jsx` down as a prop to `AuthorIndex`. The `AuthorIndex` component can now access the array of authors through this prop. Now switch over to `AuthorIndex.jsx`. Map through `props.authors` (or whatever equally semantic name you gave your prop), returning an array of author names. Render the `first_name` and `last_name` of each author. _Don't forget to add a key!_ You can use the `author_id` as your key. You can follow the pattern in the [Star Wars solution](https://git.generalassemb.ly/wdi-nyc-lambda/react-star-wars-homework/blob/solution/star-wars-homework/src/FilmList.jsx) if you get stuck. 
 
 ## Step 2 The Create Author Component
 
