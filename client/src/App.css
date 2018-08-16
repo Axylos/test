@@ -26,3 +26,23 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.header {
+  width: 100vw;
+  padding: 15px 20px;
+  background: lightblue;
+
+  display: flex;
+  justify-content: space-around;
+}
+
+.header .link {
+  font-size: 20px;
+  font-weight: 600;
+  color: darkgreen;
+  letter-spacing: 5px;
+}
+
+.header .link:hover {
+  cursor: pointer;
+}

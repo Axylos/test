@@ -10,5 +10,13 @@ module.exports = {
       RETURNING *
     `, author);
   },
+
+  index() {
+    return db.manyOrNone(
+      `SELECT *
+      FROM authors`
+    );
+  }
+
 }
 
