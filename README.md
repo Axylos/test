@@ -314,3 +314,68 @@ Assuming you can successfully `POST` from the CreateAuthor form with a `first_na
 You will need to write the necessary code in the Author router and Authors controller to properly handle the `POST` request to `/authors`.  The model method for `create` has already been written, so one less thing there.
 
 This should be familiar by now.  You got this!
+
+## Step 3 Edit
+
+Now for the fun stuff.  Take a second to review Edit/Update for Books.
+
+In large measure, edit is nearly identical to create with a few caveats:
+
+- The initial value of an edit form should be the existing data for that instance of the resource
+- The method for the `fetch` request should be `PUT`
+- The path for the `fetch` request should include the id of the instance of the resource
+- The sql query for UPDATE is a bit odd
+
+```
+// services/api.js
+
+export function updateBook(book) {
+  const opts = {
+    method: 'PUT',
+    body: JSON.stringify(book),
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  };
+```
+
+```
+// app/models/Book.js
+ updateBook(book) {
+    return db.one(`
+    UPDATE books
+    SET
+    title=$/title/,
+    author_id=$/author_id/
+    WHERE book_id = $/book_id/
+    RETURNING *
+    `, book);
+  }
+```
+
+```
+// determineWhichToRender() ...
+	const book = books.find(book => book.book_id === selectedBook.book_id);
+  return <EditBook
+          onSubmit={this.updateBook}
+          authors={authors}
+          book={book} />
+```
+
+Notice how a particular book is passed to the edit form so it has the existing data to display; this book can be retrieved out of state based on the id of the selected book.
+
+So build out an `EditAuthor` component that displays a form, takes an `author` prop and `onSubmit` prop that dispatches the relevant api call.
+
+Similarly to the `BookIndex` adjust the `AuthorIndex` so that each author has a button that when clicked calls a `selectAuthor` method that is passed as a prop.  You should also implement a `selectAuthor` and add a `selectedAuthor` state variable in App.jsx.
+
+Follow along similar lines to build out the entire edit route in Express.  Some help will be on the way if this proves too challenging.
+
+This last section is deliberately challenging.
+
+- _Go Slow_
+- Make small experiments and tinker
+- If something breaks either change it back to the way it was or try to debug the new error
+- Ask a friend for help
+
+
+There is a lot of value in simply taking time to tinker with a problem.  If things are completely off the rails, just clone down and keep hacking on edit.  It should not be dependent on any other code you write.
