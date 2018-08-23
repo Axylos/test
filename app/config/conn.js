@@ -6,7 +6,9 @@ if (process.env.DATABASE_URL) {
     connectionString: process.env.DATABASE_URL
   };
 } else {
-  database: 'publisher_db'
+  opts = {
+    database: 'publisher_db'
+  };
 }
 
 const db = pgp(opts);
