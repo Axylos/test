@@ -5,6 +5,7 @@ const opts = process.env.DATABASE_URL || {
 };
 console.log(opts);
 console.log(process.env);
+console.log(process.env.DATABASE_URL);
 
 const db = pgp(opts);
 
