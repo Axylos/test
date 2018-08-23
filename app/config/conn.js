@@ -1,15 +1,8 @@
 const pgp = require('pg-promise')();
 
-let opts;
-if (process.env.DATABASE_URL) {
-  opts = {
-    connectionString: process.env.DATABASE_URL
-  };
-} else {
-  opts = {
-    database: 'publisher_db'
-  };
-}
+const opts = process.env.DATABASE_URL || {
+  database: 'publisher_db'
+};
 
 const db = pgp(opts);
 
